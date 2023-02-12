@@ -26,21 +26,18 @@ class MainActivity : AppCompatActivity() {
                try{
                    celsius=etC.text.toString().toDouble()
                }catch(e:java.lang.Exception){
-                   txError.setText("Ha ingresado valores no validos")
                }
                if(celsius==0.0){
                    try{
                        kelvin=etK.text.toString().toDouble()
                    }catch(e:java.lang.Exception){
-                       txError.setText("Ha ingresado valores no validos")
                    }
                    try{
                        fahrenheit=etF.text.toString().toDouble()
                    }catch(e:java.lang.Exception){
-                       txError.setText("Ha ingresado valores no validos")
                    }
                    if(kelvin!=0.0 && fahrenheit!=0.0){
-                       txError.setText("Solo se requiere que ingrese un valor  kelvin o fahrenheit, para que comprenda la conserion")
+                       txError.setText("Solo se requiere que ingrese un valor  kelvin o fahrenheit")
                    }else{
                        if(kelvin==0.0 && fahrenheit!=0.0 ){
                          etC.setText("%.4f".format(calcularFahrenheitToCelsius(fahrenheit)))
@@ -62,27 +59,22 @@ class MainActivity : AppCompatActivity() {
                 var kelvin:Double=0.0
                 var fahrenheit:Double=0.0
 
-
                 try{
                     kelvin=etK.text.toString().toDouble()
                 }catch(e:java.lang.Exception){
-                    txError.setText("Ha ingresado valores no validos")
                 }
-
 
                 if(kelvin==0.0){
                     try{
                         fahrenheit=etF.text.toString().toDouble()
                     }catch(e:java.lang.Exception){
-                        txError.setText("Ha ingresado valores no validos")
                     }
                     try{
                         celsius=etC.text.toString().toDouble()
                     }catch(e:java.lang.Exception){
-                        txError.setText("Ha ingresado valores no validos")
                     }
                     if(celsius!=0.0 && fahrenheit!=0.0){
-                        txError.setText("Solo se requiere que ingrese un valor  celsius o fahrenheit, para que comprenda la conserion")
+                        txError.setText("Solo se requiere que ingrese un valor  celsius o fahrenheit")
                     }else{
                         if(celsius==0.0 && fahrenheit!=0.0 ){
                             etK.setText("%.4f".format(calcularFahrenheitToKelvin(fahrenheit)))
@@ -107,23 +99,19 @@ class MainActivity : AppCompatActivity() {
                 try{
                     fahrenheit=etF.text.toString().toDouble()
                 }catch(e:java.lang.Exception){
-                    txError.setText("Ha ingresado valores no validos")
                 }
 
                 if(fahrenheit==0.0){
                     try{
                         kelvin=etK.text.toString().toDouble()
                     }catch(e:java.lang.Exception){
-                        txError.setText("Ha ingresado valores no validos")
                     }
                     try{
                         celsius=etC.text.toString().toDouble()
                     }catch(e:java.lang.Exception){
-                        txError.setText("Ha ingresado valores no validos")
                     }
                     if(celsius!=0.0 && kelvin!=0.0){
-
-                        txError.setText("Solo se requiere que ingrese un valor  celsius o kelvin, para que comprenda la conserion")
+                        txError.setText("Solo se requiere que ingrese un valor  celsius o kelvin")
                     }else{
                         if(celsius==0.0 && kelvin!=0.0 ){
                             etF.setText("%.4f".format(calcularKelvinToFahrenheit(kelvin)))
@@ -140,24 +128,27 @@ class MainActivity : AppCompatActivity() {
         }
     }
     
-
+//Tampoco
     fun calcularFahrenheitToCelsius(fahrenheit:Double): Double{
         return ((fahrenheit-32)*(5/9))
     }
 
+    //Tampoco
     fun calcularKelvinToCelsius(kelvin:Double):Double{
 return (kelvin-273.15)
     }
-
+//NoFunciona
     fun calcularCelsiusToFahrenheit(celsius:Double): Double{
         return ((celsius*(9/5))+32)
     }
+    //Tampoco
     fun calcularKelvinToFahrenheit(kelvin:Double):Double{
      return ((((kelvin-273.15))*(9/5))+32)
     }
     fun calcularCelsiusToKelvin(celsius:Double):Double{
         return (celsius+273.15)
     }
+    //Tampoco
     fun calcularFahrenheitToKelvin(fahrenheit:Double):Double{
         return ((((fahrenheit-32))*(5/9))+273.15)
     }
