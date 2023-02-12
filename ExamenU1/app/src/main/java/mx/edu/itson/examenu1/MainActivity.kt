@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                    }else{
                        if(kelvin==0.0 && fahrenheit!=0.0 ){
                          etC.setText("%.4f".format(calcularFahrenheitToCelsius(fahrenheit)))
-                       }else{
+                       }else if(kelvin!=0.0 && fahrenheit==0.0 ){
                            etC.setText("%.4f".format(calcularKelvinToCelsius(kelvin)))
                        }
                    }
@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
                     }else{
                         if(celsius==0.0 && fahrenheit!=0.0 ){
                             etK.setText("%.4f".format(calcularFahrenheitToKelvin(fahrenheit)))
-                        }else{
+                        }else if(celsius!=0.0 && fahrenheit==0.0 ){
                             etK.setText("%.4f".format(calcularCelsiusToKelvin(celsius)))
                         }
                     }
@@ -115,7 +115,7 @@ class MainActivity : AppCompatActivity() {
                     }else{
                         if(celsius==0.0 && kelvin!=0.0 ){
                             etF.setText("%.4f".format(calcularKelvinToFahrenheit(kelvin)))
-                        }else{
+                        }else if(celsius!=0.0 && kelvin==0.0 ){
                             etF.setText("%.4f".format(calcularCelsiusToFahrenheit(celsius)))
                         }
                     }
@@ -148,7 +148,7 @@ return (kelvin-273.15)
     fun calcularCelsiusToKelvin(celsius:Double):Double{
         return (celsius+273.15)
     }
-    //Tampoco
+    //Tampocoyyyyyy
     fun calcularFahrenheitToKelvin(fahrenheit:Double):Double{
         return ((((fahrenheit-32))*(5/9))+273.15)
     }
