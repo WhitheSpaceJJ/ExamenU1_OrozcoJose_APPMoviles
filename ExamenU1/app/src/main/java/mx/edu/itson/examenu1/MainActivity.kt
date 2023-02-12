@@ -130,26 +130,32 @@ class MainActivity : AppCompatActivity() {
     
 //Tampoco
     fun calcularFahrenheitToCelsius(fahrenheit:Double): Double{
-        return ((fahrenheit-32)*(5/9))
+       var base:Double=(fahrenheit-32)*(5/9)
+        return (base)
     }
 
     //Tampoco
     fun calcularKelvinToCelsius(kelvin:Double):Double{
-return (kelvin-273.15)
+        var  base:Double=(kelvin-273.15)
+return (base)
     }
 //NoFunciona
     fun calcularCelsiusToFahrenheit(celsius:Double): Double{
-        return ((celsius*(9/5))+32)
+    var base:Double=celsius*(9/5)
+        return (base+32)
     }
     //Tampoco
     fun calcularKelvinToFahrenheit(kelvin:Double):Double{
-     return ((((kelvin-273.15))*(9/5))+32)
+        var base:Double=(kelvin-273.15)*(9/5)
+     return (base+32)
     }
     fun calcularCelsiusToKelvin(celsius:Double):Double{
-        return (celsius+273.15)
+        var base:Double=(celsius+273.15)
+        return (base)
     }
     //Tampocoyyyyyy
     fun calcularFahrenheitToKelvin(fahrenheit:Double):Double{
-        return ((((fahrenheit-32))*(5/9))+273.15)
+        var base:Double=(fahrenheit-32)*(5/9)
+        return (base+273.15)
     }
 }
