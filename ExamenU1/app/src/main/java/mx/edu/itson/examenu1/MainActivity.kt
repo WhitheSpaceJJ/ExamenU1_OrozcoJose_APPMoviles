@@ -20,17 +20,24 @@ class MainActivity : AppCompatActivity() {
         btnC.setOnClickListener {
           txError.setText("")
            if(etC.toString().isEmpty()==false || etF.toString().isEmpty()==false || etK.toString().isEmpty()==false){
-               var celsius:Double=etC.toString().toDouble()
-               var kelvin:Double=etK.toString().toDouble()
-               var fahrenheit:Double=etF.toString().toDouble()
+               var celsius:Double=0.0
+               var kelvin:Double=0.0
+               var fahrenheit:Double=0.0
+               try{
+                   celsius=etC.text.toString().toDouble()
+                   kelvin=etK.text.toString().toDouble()
+                    fahrenheit=etF.text.toString().toDouble()
+               }catch(e:java.lang.Exception){
+                   txError.setText("Ha ingresado valores no validos")
+               }
                if(celsius==0.0){
                    if(kelvin!=0.0 && fahrenheit!=0.0){
                        txError.setText("Solo se requiere que ingrese un valor  kelvin o fahrenheit, para que comprenda la conserion")
                    }else{
                        if(kelvin==0.0 && fahrenheit!=0.0 ){
-                         etC.setText(calcularCelsius(fahrenheit).toString())
+                         etC.setText("%.4f".format(calcularFahrenheitToCelsius(fahrenheit)))
                        }else{
-                           etC.setText(calcularKelvinToCelsius(kelvin).toString())
+                           etC.setText("%.4f".format(calcularKelvinToCelsius(kelvin)))
                        }
                    }
                }else{
@@ -43,17 +50,24 @@ class MainActivity : AppCompatActivity() {
         btnK.setOnClickListener {
             txError.setText("")
             if(etC.toString().isEmpty()==false || etF.toString().isEmpty()==false || etK.toString().isEmpty()==false){
-                var celsius:Double=etC.toString().toDouble()
-                var kelvin:Double=etK.toString().toDouble()
-                var fahrenheit:Double=etF.toString().toDouble()
+                var celsius:Double=0.0
+                var kelvin:Double=0.0
+                var fahrenheit:Double=0.0
+                try{
+                    celsius=etC.text.toString().toDouble()
+                    kelvin=etK.text.toString().toDouble()
+                    fahrenheit=etF.text.toString().toDouble()
+                }catch(e:java.lang.Exception){
+                    txError.setText("Ha ingresado valores no validos")
+                }
                 if(kelvin==0.0){
                     if(celsius!=0.0 && fahrenheit!=0.0){
                         txError.setText("Solo se requiere que ingrese un valor  celsius o fahrenheit, para que comprenda la conserion")
                     }else{
                         if(celsius==0.0 && fahrenheit!=0.0 ){
-                            etK.setText(calcularFahrenheitToKelvin(fahrenheit).toString())
+                            etK.setText("%.4f".format(calcularFahrenheitToKelvin(fahrenheit)))
                         }else{
-                            etK.setText(calcularCelsiusToKelvin(celsius).toString())
+                            etK.setText("%.4f".format(calcularCelsiusToKelvin(celsius)))
                         }
                     }
                 }else{
@@ -66,17 +80,24 @@ class MainActivity : AppCompatActivity() {
         btnF.setOnClickListener {
             txError.setText("")
             if(etC.toString().isEmpty()==false || etF.toString().isEmpty()==false || etK.toString().isEmpty()==false){
-                var celsius:Double=etC.toString().toDouble()
-                var kelvin:Double=etK.toString().toDouble()
-                var fahrenheit:Double=etF.toString().toDouble()
+                var celsius:Double=0.0
+                var kelvin:Double=0.0
+                var fahrenheit:Double=0.0
+                try{
+                    celsius=etC.text.toString().toDouble()
+                    kelvin=etK.text.toString().toDouble()
+                    fahrenheit=etF.text.toString().toDouble()
+                }catch(e:java.lang.Exception){
+                    txError.setText("Ha ingresado valores no validos")
+                }
                 if(fahrenheit==0.0){
                     if(celsius!=0.0 && kelvin!=0.0){
                         txError.setText("Solo se requiere que ingrese un valor  celsius o kelvin, para que comprenda la conserion")
                     }else{
                         if(celsius==0.0 && kelvin!=0.0 ){
-                            etF.setText(calcularKelvinToFahrenheit(kelvin).toString())
+                            etF.setText("%.4f".format(calcularKelvinToFahrenheit(kelvin)))
                         }else{
-                            etF.setText(calcularFahrenheit(celsius).toString())
+                            etF.setText("%.4f".format(calcularCelsiusToFahrenheit(celsius)))
                         }
                     }
                 }else{
@@ -88,22 +109,25 @@ class MainActivity : AppCompatActivity() {
         }
     }
     
-    fun calcularFahrenheit(celsius:Double): Double{
-return ((celsius*1.8)+32)
+
+    fun calcularFahrenheitToCelsius(fahrenheit:Double): Double{
+        return ((fahrenheit-32)*(5/9))
     }
-    fun calcularCelsius(fahrenheit:Double): Double{
-        return ((fahrenheit-32)/1.8)
-    }
+
     fun calcularKelvinToCelsius(kelvin:Double):Double{
 return (kelvin-273.15)
     }
+
+    fun calcularCelsiusToFahrenheit(celsius:Double): Double{
+        return ((celsius*(9/5))+32)
+    }
     fun calcularKelvinToFahrenheit(kelvin:Double):Double{
-     return (((9*(kelvin-273.15))/5)+32)
+     return ((((kelvin-273.15))*(9/5))+32)
     }
     fun calcularCelsiusToKelvin(celsius:Double):Double{
         return (celsius+273.15)
     }
     fun calcularFahrenheitToKelvin(fahrenheit:Double):Double{
-        return (((5*(fahrenheit-32))/9)+273.15)
+        return ((((fahrenheit-32))*(5/9))+273.15)
     }
 }
