@@ -25,12 +25,20 @@ class MainActivity : AppCompatActivity() {
                var fahrenheit:Double=0.0
                try{
                    celsius=etC.text.toString().toDouble()
-                   kelvin=etK.text.toString().toDouble()
-                    fahrenheit=etF.text.toString().toDouble()
                }catch(e:java.lang.Exception){
                    txError.setText("Ha ingresado valores no validos")
                }
                if(celsius==0.0){
+                   try{
+                       kelvin=etK.text.toString().toDouble()
+                   }catch(e:java.lang.Exception){
+                       txError.setText("Ha ingresado valores no validos")
+                   }
+                   try{
+                       fahrenheit=etF.text.toString().toDouble()
+                   }catch(e:java.lang.Exception){
+                       txError.setText("Ha ingresado valores no validos")
+                   }
                    if(kelvin!=0.0 && fahrenheit!=0.0){
                        txError.setText("Solo se requiere que ingrese un valor  kelvin o fahrenheit, para que comprenda la conserion")
                    }else{
@@ -53,14 +61,26 @@ class MainActivity : AppCompatActivity() {
                 var celsius:Double=0.0
                 var kelvin:Double=0.0
                 var fahrenheit:Double=0.0
+
+
                 try{
-                    celsius=etC.text.toString().toDouble()
                     kelvin=etK.text.toString().toDouble()
-                    fahrenheit=etF.text.toString().toDouble()
                 }catch(e:java.lang.Exception){
                     txError.setText("Ha ingresado valores no validos")
                 }
+
+
                 if(kelvin==0.0){
+                    try{
+                        fahrenheit=etF.text.toString().toDouble()
+                    }catch(e:java.lang.Exception){
+                        txError.setText("Ha ingresado valores no validos")
+                    }
+                    try{
+                        celsius=etC.text.toString().toDouble()
+                    }catch(e:java.lang.Exception){
+                        txError.setText("Ha ingresado valores no validos")
+                    }
                     if(celsius!=0.0 && fahrenheit!=0.0){
                         txError.setText("Solo se requiere que ingrese un valor  celsius o fahrenheit, para que comprenda la conserion")
                     }else{
@@ -83,15 +103,26 @@ class MainActivity : AppCompatActivity() {
                 var celsius:Double=0.0
                 var kelvin:Double=0.0
                 var fahrenheit:Double=0.0
+
                 try{
-                    celsius=etC.text.toString().toDouble()
-                    kelvin=etK.text.toString().toDouble()
                     fahrenheit=etF.text.toString().toDouble()
                 }catch(e:java.lang.Exception){
                     txError.setText("Ha ingresado valores no validos")
                 }
+
                 if(fahrenheit==0.0){
+                    try{
+                        kelvin=etK.text.toString().toDouble()
+                    }catch(e:java.lang.Exception){
+                        txError.setText("Ha ingresado valores no validos")
+                    }
+                    try{
+                        celsius=etC.text.toString().toDouble()
+                    }catch(e:java.lang.Exception){
+                        txError.setText("Ha ingresado valores no validos")
+                    }
                     if(celsius!=0.0 && kelvin!=0.0){
+
                         txError.setText("Solo se requiere que ingrese un valor  celsius o kelvin, para que comprenda la conserion")
                     }else{
                         if(celsius==0.0 && kelvin!=0.0 ){
